@@ -4,12 +4,20 @@ import tkinter as tk
 # function to close program
 def do_close():
     root.destroy()
+    
+def popup_window():
+    window = tk.Toplevel()
+    window.geometry("280x300")
+    window.title("A/B result")
+    
+    btnClosePopup = tk.Button(window, text="Close", font=('Helvetica', 10, 'bold'), command=window.destroy)
+    btnClosePopup.place(x=160, y=250, width=90, height=30)
+
 
 # main window
 root = tk.Tk()
 root.geometry("280x300")
 root.title("A/B Calculator")
-
 
 # header
 lblTitle = tk.Label(text="A/B Calculator", font=('Helvetica', 16, 'bold'), fg='#0000cc')
@@ -52,7 +60,7 @@ entConversions2.place(x=115, y=205, width=90, height=20)
 
 
 # close button
-btnProcess = tk.Button(root, text="Calculate", font=('Helvetica', 10, 'bold'))
+btnProcess = tk.Button(root, text="Calculate", font=('Helvetica', 10, 'bold'), command=popup_window)
 btnProcess.place(x=25, y=250, width=90, height=30)
 
 # close button
