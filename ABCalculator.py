@@ -1,5 +1,6 @@
 
 import tkinter as tk
+from tkinter import messagebox as mb
 
 # function to close program
 def do_close():
@@ -11,6 +12,11 @@ def do_processing():
     c1 = int(entConversions1.get())
     n2 = int(entVisitors2.get())
     c2 = int(entConversions2.get())
+    
+    #check values
+    if n1 <= 0 or n2 <= 0:
+        mb.showerror(title='Error', message='Incorrect number of visitors')
+        return
     
     popup_window(n1, c1, n2, c2)
     
