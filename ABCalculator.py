@@ -4,14 +4,27 @@ import tkinter as tk
 # function to close program
 def do_close():
     root.destroy()
+
+def do_processing():
+    #read values from entries
+    n1 = int(entVisitors1.get())
+    c1 = int(entConversions1.get())
+    n2 = int(entVisitors2.get())
+    c2 = int(entConversions2.get())
     
-def popup_window():
+    popup_window(n1, c1, n2, c2)
+    
+    
+def popup_window(n1, c1, n2, c2):
     window = tk.Toplevel()
     window.geometry("280x300")
     window.title("A/B result")
     
     btnClosePopup = tk.Button(window, text="Close", font=('Helvetica', 10, 'bold'), command=window.destroy)
     btnClosePopup.place(x=160, y=250, width=90, height=30)
+    
+    # focus on a popup window
+    window.focus_force()
 
 
 # main window
@@ -64,7 +77,7 @@ entConversions2.insert(tk.END, '0')
 
 
 # close button
-btnProcess = tk.Button(root, text="Calculate", font=('Helvetica', 10, 'bold'), command=popup_window)
+btnProcess = tk.Button(root, text="Calculate", font=('Helvetica', 10, 'bold'), command=do_processing)
 btnProcess.place(x=25, y=250, width=90, height=30)
 
 # close button
